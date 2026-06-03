@@ -12,15 +12,7 @@ const PORT = process.env.PORT || 3001
 // =============================================
 
 // CORS — permite o frontend acessar o backend
-app.use(cors({
-  origin: [
-    process.env.FRONTEND_URL || 'http://localhost:3000',
-    // Adicione aqui outras origens permitidas se necessário
-    // 'https://www.seusite.com.br'
-  ],
-  methods: ['GET', 'POST'],
-  allowedHeaders: ['Content-Type']
-}))
+app.use(cors())
 
 // Webhook precisa do body cru para validar HMAC
 app.use('/api/webhook', express.raw({ type: 'application/json' }))
